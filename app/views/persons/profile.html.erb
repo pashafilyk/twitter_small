@@ -1,0 +1,15 @@
+<html>
+	<header>
+		<h1>Ваша сторінка</h1>
+	</header>
+
+	<body>
+		<div>
+			<p>Привіт, <%= current_user.first_name %> <%= current_user.last_name %>
+    		<%= link_to 'Вийти', destroy_user_session_path, :method => :delete %></p>
+    		<p><%= current_user.birthday%></p>
+    	</div>
+    	<%= link_to 'написати', new_post_path %>
+    	
+    	</body>
+</html>

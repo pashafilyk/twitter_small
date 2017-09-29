@@ -1,0 +1,11 @@
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+
+
+<td><%= link_to 'редагувати', edit_post_path(@post) %></td>
+
+<td><%= link_to 'видалити', post_path(@post),
+           method: :delete, data: { confirm: 'впевнені?' } %></td>
+<%= link_to 'Back', edit_post_path(@post) %></td>
