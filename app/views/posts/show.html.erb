@@ -3,9 +3,10 @@
   <%= @post.text %>
 </p>
 
+<%= link_to "all posts", controller: "posts" %>
 
-<td><%= link_to 'редагувати', edit_post_path(@post) %></td>
+<%= link_to 'редагувати', edit_post_path(@post) %>
 
-<td><%= link_to 'видалити', post_path(@post),
-           method: :delete, data: { confirm: 'впевнені?' } %></td>
-<%= link_to 'Back', edit_post_path(@post) %></td>
+<%= link_to 'видалити', post_path(@post),
+           method: :delete, data: { confirm: 'впевнені?' } %>
+<%= link_to 'Back', edit_post_path(@post) %>
