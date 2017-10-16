@@ -15,4 +15,11 @@ Rails.application.routes.draw do
   	#devise_scope :user do
   	#	get 'sign_in', to: 'devise/sessions#new'
 	#end
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
+  #resources :users
 end
