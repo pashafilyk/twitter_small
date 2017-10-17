@@ -1,5 +1,16 @@
 <%= image_tag(@user.avatar.thumb) %>
-<p><%= @user.first_name %> <%=	@user.last_name %></p>
 
+<p><%= @user.first_name %> <%= @user.last_name %></p>
+
+<p><%= @user.email %></p>
+
+<%= link_to "Головна", root_path %>
 
 <p><%= render partial: 'users/shared/stats' %></p>
+
+<h3>Posts:</h3>
+<% @user_post.each do |post| %>
+  <div>
+    <p><%= post.text %></p>
+  </div>
+<% end %>

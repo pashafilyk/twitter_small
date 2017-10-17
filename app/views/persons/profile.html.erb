@@ -1,20 +1,19 @@
 <div>
   <p>Привіт, <%= current_user.first_name %> <%= current_user.last_name %>
+  
   <%= link_to 'Вийти', destroy_user_session_path, :method => :delete  %></p>
     <%= image_tag(current_user.avatar.thumb) %>
+  
   <p><%= current_user.birthday%></p>
+  
+  <p><%= render partial: 'users/shared/stats' %></p>
+
 </div>
       
 <%= render partial: 'posts/form' %>
 
-<h3>my posts:</h3>
-<% @my_post.each do |post| %>
-  <div>
-    <p><%= post.text %></p>
-  </div>
-<% end %>
-
 <h3>All posts:</h3>
+
 <% @posts.each do |post| %>
   <div>
     <p><%= post.text %></p>
@@ -22,7 +21,8 @@
 <% end %>
 
 <h3>All users </h3>
+
 <% @users.each do |user| %>
-  <p><%= user.id %> <%= image_tag(user.avatar.thumb) %> <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <p><%= user.id %> <%= image_tag(user.avatar.thumb) %> <%= link_to "#{user.first_name} #{user.last_name}",  user_path(user) %>
     <%= render partial: 'users/follow_form', locals: {user: user}  %> </p>
 <%end%>
