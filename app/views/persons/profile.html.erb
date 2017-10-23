@@ -1,5 +1,5 @@
 <div>
-  <p>Привіт, <%= current_user.first_name %> <%= current_user.last_name %>
+  <p>Привіт, <%= link_to "#{current_user.first_name} #{current_user.last_name}",  user_path(current_user) %>
   
   <%= link_to 'Вийти', destroy_user_session_path, :method => :delete  %></p>
     <%= image_tag(current_user.avatar.thumb) %>
@@ -22,7 +22,7 @@
 
 <h3>All users </h3>
 
-<% @users.each do |user| %>
+<% @all_user.each do |user| %>
   <p><%= user.id %> <%= image_tag(user.avatar.thumb) %> <%= link_to "#{user.first_name} #{user.last_name}",  user_path(user) %>
     <%= render partial: 'users/follow_form', locals: {user: user}  %> </p>
 <%end%>
